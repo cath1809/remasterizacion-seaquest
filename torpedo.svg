@@ -1,45 +1,5 @@
-<svg width="24" height="64" viewBox="0 0 24 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Torpedo vertical estilo cartoon -->
-  <defs>
-    <linearGradient id="torpedoGradVertical" x1="50%" y1="100%" x2="50%" y2="0%">
-      <stop offset="0%" stop-color="#616161"/>
-      <stop offset="100%" stop-color="#9E9E9E"/>
-    </linearGradient>
-    
-    <radialGradient id="warheadGradVertical" cx="50%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#F44336"/>
-      <stop offset="100%" stop-color="#C62828"/>
-    </radialGradient>
-    
-    <!-- Filtro para efecto de llama -->
-    <filter id="flameFilter" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-  </defs>
-  
-  <!-- Cuerpo vertical -->
-  <rect x="4" y="12" width="16" height="40" rx="8" fill="url(#torpedoGradVertical)"/>
-  
-  <!-- Cabeza explosiva (arriba) -->
-  <circle cx="12" cy="12" r="12" fill="url(#warheadGradVertical)"/>
-  
-  <!-- Aletas (horizontales ahora) -->
-  <path d="M4,52 L12,60 L20,52 Z" fill="#424242"/>
-  
-  <!-- Detalles circulares -->
-  <circle cx="12" cy="30" r="2" fill="#212121"/>
-  <circle cx="12" cy="40" r="2" fill="#212121"/>
-  <circle cx="12" cy="50" r="2" fill="#212121"/>
-  
-  <!-- Propulsión (abajo - animación mejorada) -->
-  <g filter="url(#flameFilter)">
-    <circle cx="12" cy="62" r="5" fill="#FF5722">
-      <animate attributeName="r" values="5;7;5" dur="0.3s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="62;63;62" dur="0.4s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M7,60 Q12,65 17,60" fill="none" stroke="#FFC107" stroke-width="3" stroke-linecap="round">
-      <animate attributeName="d" values="M7,60 Q12,65 17,60; M7,60 Q12,68 17,60; M7,60 Q12,65 17,60" dur="0.5s" repeatCount="indefinite"/>
-    </path>
-  </g>
+<svg width="60" height="12" viewBox="0 0 60 12" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="1" width="50" height="10" rx="5" fill="#666" />
+  <polygon points="55,6 60,1 60,11" fill="#f00" />
+  <polygon points="5,6 0,1 0,11" fill="#444" />
 </svg>
