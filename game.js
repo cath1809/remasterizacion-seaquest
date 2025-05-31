@@ -1,4 +1,4 @@
-// Configuración del juego
+
 const config = {
     type: Phaser.AUTO,
     width: 800,
@@ -18,7 +18,7 @@ const config = {
     }
 };
 
-// Variables globales
+
 let game = new Phaser.Game(config);
 let player;
 let enemies;
@@ -35,9 +35,9 @@ let oxygenTimer;
 let background;
 let isOutOfBounds = false;
 let currentScene;
-let playerDirection = 'right'; // 'left' o 'right'
+let playerDirection = 'right'; 
 
-// Límites del juego
+
 const MAR_TOP = 150;
 const MAR_BOTTOM = 450;
 const MAR_LEFT = 50;
@@ -59,12 +59,10 @@ function preload() {
 function create() {
     currentScene = this;
     
-    // Fondo
     background = this.add.image(0, 0, 'ocean').setOrigin(0, 0);
     background.displayWidth = 800;
     background.displayHeight = 600;
 
-    // Partículas de burbujas
     this.bubbles = this.add.particles(0, 0, 'bubble', {
         frame: 0,
         scale: { 
@@ -97,32 +95,28 @@ function create() {
     });
     this.bubbles.setDepth(1);
 
-    // Jugador
     player = this.physics.add.sprite(400, MAR_BOTTOM - 50, 'submarine');
     player.setCollideWorldBounds(false);
     player.setScale(0.8);
     player.flipX = false;
-    player.setSize(80, 30); // Ajustar hitbox para mejor colisión
+    player.setSize(80, 30); 
     player.setOffset(10, 15);
 
-    // Grupos
     enemies = this.physics.add.group();
     bubbles = this.physics.add.group();
     divers = this.physics.add.group();
     
-    // Controles
+
     cursors = this.input.keyboard.createCursorKeys();
     fireButton = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    
-    // Temporizadores
+
     oxygenTimer = this.time.addEvent({
         delay: 1000,
         callback: decreaseOxygen,
         callbackScope: this,
         loop: true
     });
-    
-    // Eventos repetitivos
+
     this.time.addEvent({
         delay: 2000,
         callback: spawnEnemy,
@@ -137,26 +131,23 @@ function create() {
         loop: true
     });
     
-    // Colisiones
+
     this.physics.add.overlap(bubbles, enemies, hitEnemy, null, this);
     this.physics.add.overlap(player, divers, rescueDiver, null, this);
     this.physics.add.overlap(player, enemies, hitPlayer, null, this);
     
-    // HUD
+
     updateHUD();
 }
 
 function update(time) {
-    // Movimiento del jugador
     handlePlayerMovement();
-    
-    // Disparar
+
     if (fireButton.isDown && time > lastFired) {
         fireBubble();
         lastFired = time + 500;
     }
-    
-    // Game over por oxígeno
+
     if (oxygen <= 0) {
         loseLife();
         oxygen = 100;
@@ -182,7 +173,6 @@ function handlePlayerMovement() {
         player.setVelocityY(200);
     }
     
-    // Limitar movimiento y verificar límites
     player.x = Phaser.Math.Clamp(player.x, PLAYER_LEFT, PLAYER_RIGHT);
     player.y = Phaser.Math.Clamp(player.y, PLAYER_TOP, PLAYER_BOTTOM);
     
@@ -199,8 +189,7 @@ function fireBubble() {
         player.y, 
         'torpedo'
     );
-    
-    // Configurar torpedo según dirección
+ 
     if (playerDirection === 'left') {
         bubble.setVelocityX(300);
         bubble.flipX = true;
