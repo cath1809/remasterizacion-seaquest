@@ -1,0 +1,44 @@
+<svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definiciones -->
+  <defs>
+    <linearGradient id="fishBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B0000"/> <!-- Rojo oscuro -->
+      <stop offset="100%" stop-color="#FF4500"/> <!-- Rojo anaranjado -->
+    </linearGradient>
+    
+    <filter id="fishGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Cuerpo del pez -->
+  <path d="M10,40 Q50,5 90,40 Q50,75 10,40 Z" fill="url(#fishBody)" filter="url(#fishGlow)"/>
+  
+  <!-- Ojo malvado -->
+  <circle cx="25" cy="35" r="5" fill="white"/>
+  <circle cx="25" cy="35" r="3" fill="black"/>
+  <path d="M20,30 L30,40 M20,40 L30,30" stroke="white" stroke-width="1"/>
+  
+  <!-- Aletas agresivas -->
+  <path d="M90,40 L110,30 L115,40 L110,50 Z" fill="#B22222"/> <!-- Aleta trasera -->
+  <path d="M40,15 L50,10 L60,20 L50,25 Z" fill="#DC143C" opacity="0.8"/> <!-- Aleta superior -->
+  <path d="M40,65 L50,70 L60,60 L50,55 Z" fill="#DC143C" opacity="0.8"/> <!-- Aleta inferior -->
+  
+  <!-- Dientes afilados -->
+  <path d="M15,45 L20,42 L20,48 Z" fill="white"/>
+  <path d="M15,35 L20,38 L20,32 Z" fill="white"/>
+  
+  <!-- Detalles de escamas agresivas -->
+  <path d="M40,40 Q45,35 50,40 Q45,45 40,40 Z" fill="none" stroke="#FF0000" stroke-width="1"/>
+  <path d="M55,40 Q60,35 65,40 Q60,45 55,40 Z" fill="none" stroke="#FF0000" stroke-width="1"/>
+  <path d="M70,40 Q75,35 80,40 Q75,45 70,40 Z" fill="none" stroke="#FF0000" stroke-width="1"/>
+  
+  <!-- Animación de movimiento -->
+  <animateTransform 
+    attributeName="transform"
+    type="translate"
+    values="0,0; -5,-2; 0,0; -5,2; 0,0"
+    dur="2s"
+    repeatCount="indefinite"/>
+</svg>

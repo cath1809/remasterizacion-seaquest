@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cabeza del buzo -->
+  <circle cx="32" cy="20" r="10" fill="#FFD7B5" stroke="#000" stroke-width="1"/>
+  
+  <!-- Traje de buzo -->
+  <rect x="22" y="30" width="20" height="25" fill="#1E88E5" stroke="#000" stroke-width="1"/>
+  
+  <!-- Máscara de buzo -->
+  <circle cx="32" cy="22" r="6" fill="#4FC3F7" stroke="#01579B" stroke-width="1"/>
+  <circle cx="30" cy="21" r="1.5" fill="#000"/>
+  <circle cx="34" cy="21" r="1.5" fill="#000"/>
+  
+  <!-- Tanque de oxígeno -->
+  <rect x="45" y="30" width="5" height="25" fill="#78909C" stroke="#000" stroke-width="1"/>
+  <rect x="44" y="28" width="7" height="2" fill="#546E7A" stroke="#000" stroke-width="0.5"/>
+  
+  <!-- Brazos -->
+  <rect x="42" y="35" width="15" height="5" fill="#1E88E5" stroke="#000" stroke-width="1" transform="rotate(30 42 35)"/>
+  <rect x="7" y="35" width="15" height="5" fill="#1E88E5" stroke="#000" stroke-width="1" transform="rotate(-30 22 35)"/>
+  
+  <!-- Piernas -->
+  <rect x="22" y="55" width="8" height="15" fill="#1565C0" stroke="#000" stroke-width="1"/>
+  <rect x="32" y="55" width="8" height="15" fill="#1565C0" stroke="#000" stroke-width="1"/>
+  
+  <!-- Burbujas -->
+  <circle cx="15" cy="15" r="2" fill="#B3E5FC" opacity="0.8"/>
+  <circle cx="20" cy="5" r="3" fill="#B3E5FC" opacity="0.8"/>
+  <circle cx="50" cy="10" r="2" fill="#B3E5FC" opacity="0.8"/>
+</svg>

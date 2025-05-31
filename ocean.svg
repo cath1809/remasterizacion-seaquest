@@ -1,0 +1,73 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente para el cielo -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF7F50"/>
+      <stop offset="40%" stop-color="#FFA07A"/>
+      <stop offset="100%" stop-color="#87CEEB"/>
+    </linearGradient>
+    
+    <!-- Gradiente para el agua -->
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E90FF" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#00008B"/>
+    </linearGradient>
+
+    <!-- Patrón de arena optimizado -->
+    <pattern id="sandPattern" patternUnits="userSpaceOnUse" width="100" height="20">
+      <rect width="100" height="20" fill="#D2B48C"/>
+      <path d="M0,12 Q25,8 50,12 T100,12" fill="none" stroke="#B8860B" stroke-width="1.5"/>
+    </pattern>
+    
+    <!-- Filtro para burbujas -->
+    <filter id="bubbleGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== -->
+  <!-- 1. CIELO CON SOL -->
+  <!-- ==================== -->
+  <rect width="800" height="150" fill="url(#skyGradient)"/>
+  
+  <!-- Sol con animación de brillo -->
+  <g filter="url(#bubbleGlow)">
+    <circle cx="400" cy="100" r="40" fill="#FFD700">
+      <animate attributeName="r" values="40;42;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;0.7;0.9" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Rayos de sol -->
+  <g opacity="0.6">
+    <line x1="400" y1="30" x2="400" y2="10" stroke="#FFD700" stroke-width="3"/>
+    <line x1="450" y1="80" x2="480" y2="60" stroke="#FFD700" stroke-width="3"/>
+    <line x1="350" y1="80" x2="320" y2="60" stroke="#FFD700" stroke-width="3"/>
+    <line x1="400" y1="170" x2="400" y2="190" stroke="#FFD700" stroke-width="3"/>
+  </g>
+
+  <!-- ==================== -->
+  <!-- 2. COLUMNA DE AGUA -->
+  <!-- ==================== -->
+  <rect y="150" width="800" height="350" fill="url(#waterGradient)"/>
+  
+  <!-- Efecto de rayos de luz -->
+  <path d="M200,150 Q400,250 600,150" fill="none" stroke="#B0E0E6" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- ==================== -->
+  <!-- 3. SUELO MARINO -->
+  <!-- ==================== -->
+  <rect y="500" width="800" height="100" fill="#D2B48C"/>
+  <rect y="500" width="800" height="100" fill="url(#sandPattern)" opacity="0.9"/>
+  <rect y="500" width="800" height="20" fill="#D2B48C" opacity="0.7"/>
+
+  <!-- Corales y rocas -->
+  <g transform="translate(0, 480)">
+    <path d="M100,20 Q150,-30 200,20 Q150,70 100,20 Z" fill="#FF6B6B" opacity="0.8"/>
+    <path d="M300,30 Q320,10 340,20 Q360,40 350,60 Q330,50 300,30" fill="#FF8C69" opacity="0.9"/>
+    <path d="M500,40 Q550,20 600,40 L600,60 Q550,80 500,60 Z" fill="#8B4513" opacity="0.7"/>
+    <path d="M700,30 Q710,10 720,30 Q730,50 720,70 Q710,90 700,70 Q690,50 700,30" fill="#2E8B57" opacity="0.9"/>
+    <path d="M400,50 L420,40 L440,50 L430,70 L410,70 Z" fill="#FFD700" opacity="0.9"/>
+  </g>
+</svg>
